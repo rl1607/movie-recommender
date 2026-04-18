@@ -4,10 +4,10 @@ import requests
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# ---------- Load Data FIRST ----------
+# ---------- Load Data ----------
 movies = pickle.load(open('movies.pkl', 'rb'))
 
-# ---------- Compute Similarity AFTER loading ----------
+# ---------- Compute Similarity (NO similarity.pkl needed) ----------
 @st.cache_resource
 def compute_similarity(data):
     cv = CountVectorizer(max_features=5000, stop_words='english')
@@ -16,16 +16,15 @@ def compute_similarity(data):
 
 similarity = compute_similarity(movies)
 
-# ---------- Load Data ----------
-movies = pickle.load(open('movies.pkl', 'rb'))
-similarity = pickle.load(open('similarity.pkl', 'rb'))
-
 # ---------- Session State ----------
 if "selected_movie" not in st.session_state:
     st.session_state.selected_movie = None
 
-# 🔑 OMDb API Key (replace with your key)
-API_KEY = "727fb434"
+# 🔑 API KEY (use secrets in deployment)
+try:
+    API_KEY = st.secrets["727fb434"]
+except:
+    API_KEY = "727fb434"
 
 # ---------- Fetch Poster ----------
 def fetch_poster(movie_title):
