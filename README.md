@@ -42,7 +42,7 @@ https://movie-recommender-3xhhayebnjuccahmdmqit6.streamlit.app/
 ```bash
 pip install -r requirements.txt
 python -m streamlit run app.py
-
+```
 ##snapshots
 <img width="1920" height="1014" alt="Screenshot (116)" src="https://github.com/user-attachments/assets/67cc1b72-e0d2-4aeb-ad75-f5ccb9a40e7c" />
 <img width="1920" height="1008" alt="Screenshot (117)" src="https://github.com/user-attachments/assets/71fecd35-10bb-450d-9b21-e941fd2c5399" />
