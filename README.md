@@ -42,7 +42,9 @@ https://movie-recommender-3xhhayebnjuccahmdmqit6.streamlit.app/
 ```bash
 pip install -r requirements.txt
 python -m streamlit run app.py
+
 ```
+
 ## 📷 Snapshots
 
 
